@@ -1,3 +1,6 @@
 AllCops:
   Exclude:
     - 'Guardfile'
+
+Documentation:
+  Enabled: false
