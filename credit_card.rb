@@ -4,12 +4,15 @@ class CreditCard
   end
 
   def balance
-    @balance.round(2)
+    format('%.2f', @balance)
   end
 
   def charge(amount)
-    @amount = amount.to_f
-    @balance = (@balance + @amount).round(2)
+    @balance += amount
+  end
+
+  def payment(payment)
+    @balance -= payment
   end
 end
 
