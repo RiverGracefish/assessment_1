@@ -8,11 +8,17 @@ class CreditCard
   end
 
   def charge(amount)
-    @balance += amount
+    format('%.2f', @balance += amount)
   end
 
-  def payment(payment)
-    @balance -= payment
+  def payment(payment_amount)
+    format('%.2f', new_balance = @balance - payment_amount)
+    @balance = 0.00
+    if @balance < 0.00
+      @balance = 0.00
+    else
+      @balance = new_balance
+    end
   end
 end
 
@@ -21,4 +27,9 @@ puts "Balance: #{visa.balance}"
 
 visa.charge(3.25)
 visa.charge(3.25)
+puts "Balance: #{visa.balance}"
+
+visa.charge(3.25)
+visa.charge(3.25)
+visa.payment(10)
 puts "Balance: #{visa.balance}"
